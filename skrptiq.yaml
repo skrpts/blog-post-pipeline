@@ -1,0 +1,40 @@
+# --- Identity ---
+name: "blog-post-pipeline"
+display_name: "Blog Post Pipeline"
+description: "End-to-end blog production: ideation, briefing, draft, editorial review, and SEO optimisation"
+version: "1.0.0"
+engine: ">=1.0.0"
+
+# --- Attribution ---
+author:
+  name: "skrptiq"
+  url: "https://hub.skrptiq.ai"
+
+licence: "MIT"
+repository: "https://github.com/skrpts/blog-post-pipeline"
+
+# --- Discovery (Hub) ---
+category: "content-creator"
+tags:
+  - "blogging"
+  - "seo"
+  - "writing"
+
+# --- Security & Access ---
+requires:
+  services:
+    - "anthropic-claude"
+    - "openai-gpt4"
+  permissions: []
+  data_handling: []
+
+# --- Contents ---
+contents:
+  skills: 4
+  prompts: 5
+  workflows: 1
+  services: 0
+  sources: 3
+  documents: 1
+  assets: 0
+  total: 14

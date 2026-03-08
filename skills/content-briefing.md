@@ -1,0 +1,28 @@
+---
+type: skill
+id: content-briefing
+title: Content Briefing
+description: "Creates structured briefs for writers and content producers"
+tags: [Needs Review]
+connections:
+  - target: anthropic-claude
+    type: runs_on
+---
+
+## Capability
+
+Produces detailed content briefs covering angle, structure, key points, SEO targets, and reference material.
+
+## When to Use
+
+- Commissioning articles from freelance writers
+- Briefing internal content team members
+- Standardising content quality across contributors
+
+## Inputs
+
+Topic, target keyword(s), audience persona, desired length, reference URLs
+
+## Outputs
+
+Structured brief: working title, angle, outline with H2/H3 headings, key points to cover, target keyword placement, competitor references, tone guidance

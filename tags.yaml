@@ -1,0 +1,13 @@
+# Tag definitions used by nodes in this skrpt.
+
+- name: Production
+  colour: "#22c55e"
+
+- name: Tested
+  colour: "#3b82f6"
+
+- name: Needs Review
+  colour: "#8b5cf6"
+
+- name: Customer-Facing
+  colour: "#ec4899"
