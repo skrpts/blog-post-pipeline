@@ -5,7 +5,7 @@ title: Content Briefing
 description: "Creates structured briefs for writers and content producers"
 tags: [Needs Review]
 connections:
-  - target: anthropic-claude
+  - target: llm-service
     type: runs_on
 ---
 

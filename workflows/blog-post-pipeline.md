@@ -15,9 +15,7 @@ connections:
     type: uses
   - target: seo-optimisation
     type: uses
-  - target: anthropic-claude
-    type: runs_on
-  - target: openai-gpt4
+  - target: llm-service
     type: runs_on
 metadata:
   estimated_duration: "5-15 minutes"
@@ -79,3 +77,47 @@ Invoke the **seo-optimisation** skill to evaluate on-page SEO and produce action
 - If ideation produces no viable topics, expand the seed keywords or broaden the niche
 - If the draft significantly deviates from the brief, return to Stage 3 rather than trying to fix in review
 - If SEO and editorial recommendations conflict (e.g., keyword placement vs. natural prose), editorial quality takes priority
+
+## Inputs
+
+| Name | Required | Description | Example |
+|------|----------|-------------|---------|
+| `{{input.target_audience}}` | Yes | Who the post is written for | "SaaS founders and product managers" |
+| `{{input.industry_niche}}` | Yes | The topic area or industry | "B2B product-led growth" |
+| `{{input.seed_keywords}}` | Yes | Initial keywords to guide ideation | "onboarding, activation, product-led growth" |
+| `{{input.existing_inventory}}` | No | Titles of existing blog posts to avoid duplication | "5 Onboarding Mistakes, PLG Playbook" |
+| `{{input.target_length}}` | No | Desired word count. Default: 1500 | `2000` |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| Blog post | Publish-ready article in markdown with headings, body text, and conclusion |
+| Meta data | SEO title, meta description, target keywords, and suggested slug |
+| SEO score | Numeric score (0-100) with breakdown of on-page SEO factors |
+
+## Setup
+
+Before running this workflow:
+
+1. **No external services required** — this workflow runs entirely on your configured LLM provider.
+2. **Customise the style guides** — review the three source documents (`brand-voice-guide`, `editorial-style-guide`, `seo-guidelines`) and update them to match your brand and editorial standards.
+3. **Prepare your inputs** — you'll need a target audience, industry niche, and seed keywords at minimum.
+
+## Provider Notes
+
+- The editorial review and drafting steps benefit from a model with strong writing and grammar capabilities.
+- SEO optimisation is a structured analytical task — most models handle it well.
+- Content ideation benefits from a model with broad knowledge and creative generation.
+- The full pipeline uses moderate token counts — no long-context requirements.
+
+## Example Input
+
+To test this workflow immediately after import:
+
+```
+Target audience: "Small business owners who are new to content marketing"
+Industry niche: "Local service businesses (plumbers, electricians, landscapers)"
+Seed keywords: "local SEO, Google Business Profile, customer reviews"
+Target length: 1200
+```

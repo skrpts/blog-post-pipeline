@@ -5,7 +5,7 @@ title: SEO Optimisation
 description: "Analyses and improves content for search engine visibility"
 tags: [Production]
 connections:
-  - target: openai-gpt4
+  - target: llm-service
     type: runs_on
   - target: seo-guidelines
     type: references

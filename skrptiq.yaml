@@ -22,9 +22,7 @@ tags:
 
 # --- Security & Access ---
 requires:
-  services:
-    - "anthropic-claude"
-    - "openai-gpt4"
+  services: []
   permissions: []
   data_handling: []
 

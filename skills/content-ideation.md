@@ -5,7 +5,7 @@ title: Content Ideation
 description: "Generates topic ideas from trends, keywords, and audience interests"
 tags: [Tested]
 connections:
-  - target: anthropic-claude
+  - target: llm-service
     type: runs_on
 ---
 
