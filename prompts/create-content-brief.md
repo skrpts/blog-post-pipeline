@@ -3,7 +3,7 @@ type: prompt
 id: create-content-brief
 title: Create Content Brief
 description: "Creates a structured content brief for a writer or content producer"
-tags: []
+tags: [Production]
 connections:
   - target: content-briefing
     type: derived_from
@@ -14,7 +14,7 @@ metadata:
 
 ## Purpose
 
-Drives the content briefing skill by producing a comprehensive brief that a writer can follow to create content matching the required standard.
+Drives the content briefing skill by producing a detailed brief that a writer can follow to create content matching the required standard.
 
 ## Prompt
 
@@ -33,11 +33,11 @@ You are a content strategist. Create a detailed content brief for a writer based
 
 ### Inputs
 
-- **Topic:** {topic}
-- **Target keyword(s):** {keywords}
-- **Audience persona:** {audience}
-- **Desired length:** {length}
-- **Reference URLs:** {references}
+- **Topic:** Use the selected topic and angle from the content ideation stage
+- **Target keyword(s):** Use the target keyword identified for the selected topic
+- **Audience persona:** Use the target audience and industry niche defined in Stage 1
+- **Desired length:** {{input.target_length}}
+- **Reference URLs:** Include any relevant reference URLs if available
 
 ## Formatting Rules
 

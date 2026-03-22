@@ -3,7 +3,7 @@ type: prompt
 id: review-editorially
 title: Review Editorially
 description: "Reviews content for grammar, style, and brand voice compliance"
-tags: []
+tags: [Production]
 connections:
   - target: editorial-review
     type: derived_from
@@ -36,9 +36,9 @@ Conclude with a revised version of the full content incorporating all correction
 
 ### Inputs
 
-- **Draft content:** {content}
-- **Style guide:** {style_guide}
-- **Brand voice description:** {brand_voice}
+- **Draft content:** Use the blog post draft from the previous stage
+- **Style guide:** Use the editorial style guide from the sources
+- **Brand voice description:** Use the brand voice guide from the sources
 
 ## Formatting Rules
 

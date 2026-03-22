@@ -2,7 +2,7 @@
 name: "blog-post-pipeline"
 display_name: "Blog Post Pipeline"
 description: "End-to-end blog production: ideation, briefing, draft, editorial review, and SEO optimisation"
-version: "1.0.0"
+version: "1.2.0"
 engine: ">=1.0.0"
 
 # --- Attribution ---

@@ -3,7 +3,7 @@ type: document
 id: content-production-checklist
 title: Content Production Checklist
 description: "Step-by-step checklist for producing and publishing blog content"
-tags: []
+tags: [Production]
 connections: []
 ---
 

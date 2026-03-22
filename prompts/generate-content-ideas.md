@@ -3,7 +3,7 @@ type: prompt
 id: generate-content-ideas
 title: Generate Content Ideas
 description: "Generates ranked content topic ideas for a given audience and niche"
-tags: []
+tags: [Production]
 connections:
   - target: content-ideation
     type: derived_from
@@ -31,10 +31,10 @@ Rank the ideas from most to least promising based on a combination of search dem
 
 ### Inputs
 
-- **Target audience:** {audience}
-- **Industry/niche:** {niche}
-- **Seed keywords:** {keywords}
-- **Existing content:** {existing_content}
+- **Target audience:** {{input.target_audience}}
+- **Industry/niche:** {{input.industry_niche}}
+- **Seed keywords:** {{input.seed_keywords}}
+- **Existing content (if any):** {{input.existing_inventory}}
 
 ## Formatting Rules
 

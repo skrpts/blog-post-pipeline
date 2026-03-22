@@ -3,7 +3,7 @@ type: prompt
 id: analyse-seo
 title: Analyse SEO
 description: "Analyses content against target keywords for search engine optimisation"
-tags: []
+tags: [Production]
 connections:
   - target: seo-optimisation
     type: derived_from
@@ -32,9 +32,9 @@ Provide an overall SEO score out of 100 and a prioritised list of improvements.
 
 ### Inputs
 
-- **Draft content:** {content}
-- **Target keyword(s):** {keywords}
-- **Competitor URLs (optional):** {competitors}
+- **Draft content:** Use the editorially reviewed draft from the previous stage
+- **Target keyword(s):** Use the target keywords identified during ideation and briefing
+- **Competitor URLs (optional):** Include any competitor URLs if available
 
 ## Formatting Rules
 

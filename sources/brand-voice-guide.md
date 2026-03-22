@@ -3,7 +3,7 @@ type: source
 id: brand-voice-guide
 title: Brand Voice Guide
 description: "Defines the brand's tone, personality, and communication style for all content"
-tags: []
+tags: [Production]
 connections: []
 ---
 

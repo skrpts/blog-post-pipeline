@@ -3,7 +3,7 @@ type: source
 id: editorial-style-guide
 title: Editorial Style Guide
 description: "Formatting, punctuation, and style conventions for all written content"
-tags: []
+tags: [Production]
 connections: []
 ---
 
