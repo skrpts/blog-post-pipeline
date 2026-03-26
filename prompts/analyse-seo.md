@@ -32,8 +32,8 @@ Provide an overall SEO score out of 100 and a prioritised list of improvements.
 
 ### Inputs
 
-- **Draft content:** Use the editorially reviewed draft from the previous stage
-- **Target keyword(s):** Use the target keywords identified during ideation and briefing
+- **Draft content:** {{steps.review-editorially.output}}
+- **Target keyword(s):** Use the target keywords from {{steps.create-content-brief.output}}
 - **Competitor URLs (optional):** Include any competitor URLs if available
 
 ## Formatting Rules

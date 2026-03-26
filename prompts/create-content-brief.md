@@ -33,9 +33,9 @@ You are a content strategist. Create a detailed content brief for a writer based
 
 ### Inputs
 
-- **Topic:** Use the selected topic and angle from the content ideation stage
-- **Target keyword(s):** Use the target keyword identified for the selected topic
-- **Audience persona:** Use the target audience and industry niche defined in Stage 1
+- **Topic:** {{steps.generate-content-ideas.output}}
+- **Target keyword(s):** Use the target keyword from the selected topic above
+- **Audience persona:** {{input.target_audience}} in the {{input.industry_niche}} space
 - **Desired length:** {{input.target_length}}
 - **Reference URLs:** Include any relevant reference URLs if available
 
