@@ -15,6 +15,8 @@ connections:
     type: uses
   - target: seo-optimisation
     type: uses
+  - target: headline-writing
+    type: uses
   - target: llm-service
     type: runs_on
 metadata:
