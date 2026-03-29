@@ -3,7 +3,7 @@ type: source
 id: seo-guidelines
 title: SEO Guidelines
 description: "On-page SEO best practices and standards for content optimisation"
-tags: [Production]
+tags: [Production, writing:content, optimisation:seo]
 connections: []
 ---
 

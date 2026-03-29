@@ -3,7 +3,7 @@ type: skill
 id: editorial-review
 title: Editorial Review
 description: "Checks grammar, style consistency, and brand voice alignment"
-tags: [Tested]
+tags: [Tested, writing:content, communication:narrative, quality:review]
 connections:
   - target: llm-service
     type: runs_on

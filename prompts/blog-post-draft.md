@@ -3,7 +3,7 @@ type: prompt
 id: blog-post-draft
 title: Blog Post Draft
 description: "Writes a complete blog post from a content brief"
-tags: [Customer-Facing]
+tags: [Customer-Facing, writing:content, optimisation:seo]
 connections:
   - target: content-briefing
     type: derived_from

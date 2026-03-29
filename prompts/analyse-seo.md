@@ -3,7 +3,7 @@ type: prompt
 id: analyse-seo
 title: Analyse SEO
 description: "Analyses content against target keywords for search engine optimisation"
-tags: [Production]
+tags: [Production, analysis:content, writing:content, optimisation:seo]
 connections:
   - target: seo-optimisation
     type: derived_from

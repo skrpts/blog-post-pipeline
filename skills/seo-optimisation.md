@@ -3,7 +3,7 @@ type: skill
 id: seo-optimisation
 title: SEO Optimisation
 description: "Analyses and improves content for search engine visibility"
-tags: [Production]
+tags: [Production, writing:content, optimisation:seo]
 connections:
   - target: llm-service
     type: runs_on

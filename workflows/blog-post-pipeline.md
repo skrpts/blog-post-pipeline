@@ -3,7 +3,7 @@ type: workflow
 id: blog-post-pipeline
 title: Blog Post Pipeline
 description: "End-to-end blog production: ideation, briefing, draft, editorial review, and SEO optimisation"
-tags: [Production, Customer-Facing]
+tags: [Production, Customer-Facing, writing:content, quality:review, optimisation:seo]
 connections:
   - target: content-ideation
     type: uses

@@ -3,7 +3,7 @@ type: prompt
 id: create-content-brief
 title: Create Content Brief
 description: "Creates a structured content brief for a writer or content producer"
-tags: [Production]
+tags: [Production, writing:content, optimisation:seo]
 connections:
   - target: content-briefing
     type: derived_from
