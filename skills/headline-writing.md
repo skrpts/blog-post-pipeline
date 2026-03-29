@@ -3,7 +3,7 @@ type: skill
 id: headline-writing
 title: Headline Writing
 description: "Crafts compelling headlines and titles optimised for clicks and clarity"
-tags: [Production, writing:copy, writing:content]
+tags: [Production, Content, Writing]
 connections:
   - target: llm-service
     type: runs_on

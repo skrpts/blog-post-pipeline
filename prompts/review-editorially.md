@@ -3,7 +3,7 @@ type: prompt
 id: review-editorially
 title: Review Editorially
 description: "Reviews content for grammar, style, and brand voice compliance"
-tags: [Production, writing:content, communication:narrative, utility:compliance]
+tags: [Production, Communication, Content]
 connections:
   - target: editorial-review
     type: derived_from

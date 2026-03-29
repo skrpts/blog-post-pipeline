@@ -3,7 +3,7 @@ type: source
 id: brand-voice-guide
 title: Brand Voice Guide
 description: "Company brand voice, tone, and style reference for all content and communications"
-tags: [Production, writing:content, communication:narrative]
+tags: [Production, Communication, Content]
 connections: []
 ---
 
