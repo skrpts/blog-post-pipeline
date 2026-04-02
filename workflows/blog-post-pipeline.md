@@ -19,18 +19,18 @@ connections:
     type: uses
   - target: llm-service
     type: runs_on
+  - target: analyse-seo
+  - target: create-content-brief
+  - target: generate-content-ideas
+  - target: review-editorially
+  - target: content-production-checklist
 metadata:
   estimated_duration: "5-15 minutes"
   trigger: manual
-  - target: analyse-seo
     type: uses
-  - target: create-content-brief
     type: uses
-  - target: generate-content-ideas
     type: uses
-  - target: review-editorially
     type: uses
-  - target: content-production-checklist
     type: references
 ---
 
