@@ -22,6 +22,16 @@ connections:
 metadata:
   estimated_duration: "5-15 minutes"
   trigger: manual
+  - target: analyse-seo
+    type: uses
+  - target: create-content-brief
+    type: uses
+  - target: generate-content-ideas
+    type: uses
+  - target: review-editorially
+    type: uses
+  - target: content-production-checklist
+    type: references
 ---
 
 ## Overview
