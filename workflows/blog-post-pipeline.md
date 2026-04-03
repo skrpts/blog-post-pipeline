@@ -11,8 +11,6 @@ connections:
     type: uses
   - target: blog-post-draft
     type: uses
-  - target: editorial-review
-    type: uses
   - target: seo-optimisation
     type: uses
   - target: headline-writing
@@ -28,6 +26,10 @@ connections:
   - target: review-editorially
     type: uses
   - target: content-production-checklist
+    type: uses
+  - target: language-polish
+    type: uses
+  - target: brief-compliance-check
     type: uses
 metadata:
   estimated_duration: "5-15 minutes"
