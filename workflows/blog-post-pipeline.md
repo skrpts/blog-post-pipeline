@@ -9,8 +9,6 @@ connections:
     type: uses
   - target: content-briefing
     type: uses
-  - target: blog-post-draft
-    type: uses
   - target: seo-optimisation
     type: uses
   - target: headline-writing
@@ -19,12 +17,6 @@ connections:
     type: runs_on
   - target: analyse-seo
     type: references
-  - target: create-content-brief
-    type: uses
-  - target: generate-content-ideas
-    type: uses
-  - target: review-editorially
-    type: uses
   - target: content-production-checklist
     type: uses
   - target: language-polish
