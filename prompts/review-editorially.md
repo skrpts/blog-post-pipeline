@@ -36,7 +36,7 @@ Conclude with a revised version of the full content incorporating all correction
 
 ### Inputs
 
-- **Draft content:** {{steps.blog-post-draft.output}}
+- **Draft content:** {{steps.Content Briefing.output}}
 - **Style guide:** Use the editorial style guide from the sources
 - **Brand voice description:** Use the brand voice guide from the sources
 

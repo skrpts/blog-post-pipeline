@@ -33,7 +33,7 @@ You are a content strategist. Create a detailed content brief for a writer based
 
 ### Inputs
 
-- **Topic:** {{steps.generate-content-ideas.output}}
+- **Topic:** {{steps.Content Ideation.output}}
 - **Target keyword(s):** Use the target keyword from the selected topic above
 - **Audience persona:** {{input.target_audience}} in the {{input.industry_niche}} space
 - **Desired length:** {{input.target_length}}

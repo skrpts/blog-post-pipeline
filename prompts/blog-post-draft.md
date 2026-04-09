@@ -30,7 +30,7 @@ You are an experienced content writer. Using the content brief below, write a co
 
 ### Inputs
 
-- **Content brief:** {{steps.create-content-brief.output}}
+- **Content brief:** {{steps.Content Briefing.output}}
 
 ## Formatting Rules
 
