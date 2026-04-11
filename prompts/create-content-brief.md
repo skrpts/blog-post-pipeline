@@ -1,46 +1,57 @@
 ---
 type: prompt
 id: create-content-brief
-title: Create Content Brief
-description: "Creates a structured content brief for a writer or content producer"
-tags: [Production, Content, Optimisation]
+title: "Create Content Brief"
+description: "Creates a structured brief for writers and content producers"
+tags: [Production, Content, Planning]
+inputs:
+  target_audience:
+    label: "Target Audience"
+    description: "Who this content is for — their role, experience level, and what they care about"
+    example: "Engineering managers at mid-size startups (50-200 employees)"
+    required: true
+    type: text
 connections:
   - target: content-briefing
     type: derived_from
 metadata:
   output_format: markdown
-  prompt_type: core
+  prompt_type: task
 ---
 
 ## Purpose
 
-Drives the content briefing skill by producing a detailed brief that a writer can follow to create content matching the required standard.
+Drives the content briefing skill.
 
 ## Prompt
 
-You are a content strategist. Create a detailed content brief for a writer based on the inputs below. The brief should include:
+You are a content editor. Create a structured content brief from the topic and context below.
 
-1. **Working title** — a compelling title that incorporates the target keyword
-2. **Angle/hook** — the specific perspective that makes this piece unique
-3. **Target audience** — who this is for, their knowledge level, and what they care about
-4. **Outline** — detailed structure with H2 and H3 headings, including key points to cover under each
-5. **SEO targets** — primary and secondary keywords, suggested keyword placement
-6. **Competitor references** — what existing content covers this topic and how ours should differ
-7. **Tone and style** — specific guidance on voice, formality level, and any style rules
-8. **Length** — target word count with justification
-9. **Call to action** — what the reader should do after reading
-10. **Reference material** — links, data sources, or quotes to incorporate
+### Topic
 
-### Inputs
+{{steps.previous.output}}
 
-- **Topic:** {{steps.Content Ideation.output}}
-- **Target keyword(s):** Use the target keyword from the selected topic above
-- **Audience persona:** {{input.target_audience}} in the {{input.industry_niche}} space
-- **Desired length:** {{input.target_length}}
-- **Reference URLs:** Include any relevant reference URLs if available
+### Target Audience
+
+{{input.target_audience}}
+
+### Instructions
+
+Produce a content brief covering:
+
+1. **Working title** — a clear, specific title
+2. **Objective** — what this content should achieve (inform, persuade, enable)
+3. **Target audience** — who reads this and what they already know
+4. **Key message** — the one thing the reader should take away
+5. **Outline** — section-by-section structure with key points per section
+6. **Tone and voice** — formal/casual, authoritative/conversational, etc.
+7. **Word count** — target length
+8. **SEO targets** — primary keyword, secondary keywords (if applicable)
+9. **References** — specific sources, data, or examples to include
+10. **Constraints** — what to avoid, brand guidelines to follow
 
 ## Formatting Rules
 
 - Use British English throughout
-- Keep the brief actionable — a writer should be able to start immediately after reading it
-- Include specific examples where possible, not just abstract guidance
+- Be specific and actionable — no vague recommendations
+- Structure output clearly with headings, tables, or lists as appropriate

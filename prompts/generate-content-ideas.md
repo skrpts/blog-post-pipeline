@@ -1,44 +1,56 @@
 ---
 type: prompt
 id: generate-content-ideas
-title: Generate Content Ideas
-description: "Generates ranked content topic ideas for a given audience and niche"
-tags: [Production, Audience, Content]
+title: "Generate Content Ideas"
+description: "Produces topic ideas from trends, keywords, and audience interests"
+tags: [Production, Content, Planning]
+inputs:
+  content_context:
+    label: "Content Context"
+    description: "Background context for the content — what exists, what the goals are, who it serves"
+    example: "B2B SaaS blog targeting CTOs. Monthly publishing cadence. Focus on engineering leadership."
+    required: true
+    type: text
 connections:
   - target: content-ideation
     type: derived_from
 metadata:
   output_format: markdown
-  prompt_type: core
+  prompt_type: task
 ---
 
 ## Purpose
 
-Drives the content ideation skill by producing a structured set of topic ideas based on audience, industry, and keyword inputs.
+Drives the content ideation skill.
 
 ## Prompt
 
-You are a content strategist. Given the target audience, industry niche, and seed keywords below, generate 10 content topic ideas. For each idea, provide:
+You are a content strategist. Generate topic ideas based on the context below.
 
-1. **Working title** — a compelling, click-worthy title
-2. **Angle** — the specific perspective or hook that differentiates this from existing content
-3. **Target keyword** — the primary keyword this piece should rank for
-4. **Estimated search demand** — low / medium / high, based on keyword competitiveness and volume
-5. **Content type** — blog post, listicle, how-to guide, case study, opinion piece, etc.
-6. **Notes** — any additional context, seasonal relevance, or tie-ins to consider
+### Context
 
-Rank the ideas from most to least promising based on a combination of search demand, audience relevance, and content gap opportunity.
+{{input.content_context}}
 
-### Inputs
+### Instructions
 
-- **Target audience:** {{input.target_audience}}
-- **Industry/niche:** {{input.industry_niche}}
-- **Seed keywords:** {{input.seed_keywords}}
-- **Existing content (if any):** {{input.existing_inventory}}
+Produce 10 content topic ideas. For each:
+
+1. **Title** — a working title (can be refined later)
+2. **Angle** — what specific perspective or argument this piece takes
+3. **Target audience** — who this is for
+4. **Format** — blog post, guide, listicle, case study, opinion piece, etc.
+5. **Search intent** — informational, commercial, transactional, or navigational
+6. **Timeliness** — evergreen or tied to a current trend/event
+
+### Prioritisation
+
+After listing all ideas, mark your top 3 recommendations based on:
+- Audience relevance
+- Competitive gap (topics competitors haven't covered well)
+- Production effort vs. expected impact
 
 ## Formatting Rules
 
 - Use British English throughout
-- Keep titles under 70 characters
-- Avoid clickbait — titles should accurately reflect the content angle
-- If the niche is saturated, prioritise unique angles over high-volume keywords
+- Be specific and actionable — no vague recommendations
+- Structure output clearly with headings, tables, or lists as appropriate
