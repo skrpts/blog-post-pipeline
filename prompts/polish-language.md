@@ -35,8 +35,11 @@ Do NOT change the tone, restructure arguments, or rewrite for a different audien
 - Preserve technical terms and domain-specific language
 - Flag (do not fix) any factual claims that seem questionable
 
+### Output
+
+Return the COMPLETE polished text — the entire document with all corrections applied inline. Do not return a list of changes, a summary of edits, or commentary. The output should be the finished, publication-ready text.
+
 ## Formatting Rules
 
 - Use British English throughout
-- Be specific and actionable — no vague recommendations
-- Structure output clearly with headings, tables, or lists as appropriate
+- Preserve the original document structure (headings, lists, formatting)
