@@ -28,20 +28,6 @@ metadata:
   trigger: manual
 execution:
   - skill: "content-ideation"
-  - skill: "content-briefing"
-    input_from: "content-ideation"
-  - skill: "seo-optimisation"
-    input_from: "content-briefing"
-  - skill: "headline-writing"
-    input_from: "seo-optimisation"
-  - skill: "content-production-checklist"
-    input_from: "headline-writing"
-  - skill: "language-polish"
-    input_from: "headline-writing"
-  - skill: "brief-compliance-check"
-    input_from: "headline-writing"
-execution:
-  - skill: "content-ideation"
     step_type: "generation"
   - skill: "content-briefing"
     step_type: "generation"
