@@ -31,22 +31,15 @@ execution:
     step_type: "generation"
   - skill: "content-briefing"
     step_type: "generation"
-    input_from: "content-ideation"
+  - parallel:
+    - skill: "headline-writing"
+      step_type: "generation"
   - skill: "seo-optimisation"
     step_type: "review"
-    input_from: "content-briefing"
-  - skill: "headline-writing"
-    step_type: "generation"
-    input_from: "content-briefing"
   - skill: "editorial-review"
     step_type: "review"
-    input_from: "headline-writing"
-  - skill: "language-polish"
-    step_type: "content"
-    input_from: "headline-writing"
   - skill: "brief-compliance-check"
     step_type: "review"
-    input_from: "language-polish"
 ---
 
 ## Overview
