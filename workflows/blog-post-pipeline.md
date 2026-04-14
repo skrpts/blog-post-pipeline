@@ -26,6 +26,15 @@ connections:
 metadata:
   estimated_duration: "5-15 minutes"
   trigger: manual
+output_step: "headline-writing"
+composite_steps:
+  - "content-ideation"
+  - "content-briefing"
+  - "seo-optimisation"
+  - "headline-writing"
+  - "content-production-checklist"
+  - "language-polish"
+  - "brief-compliance-check"
 execution:
   - skill: "content-ideation"
     step_type: "generation"
