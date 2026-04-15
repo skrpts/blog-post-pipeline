@@ -26,29 +26,31 @@ connections:
 metadata:
   estimated_duration: "5-15 minutes"
   trigger: manual
-output_step: "headline-writing"
+output_step: "language-polish"
 composite_steps:
   - "content-ideation"
   - "content-briefing"
-  - "seo-optimisation"
   - "headline-writing"
-  - "content-production-checklist"
   - "language-polish"
+  - "seo-optimisation"
+  - "content-production-checklist"
   - "brief-compliance-check"
 execution:
   - skill: "content-ideation"
     step_type: "generation"
   - skill: "content-briefing"
     step_type: "generation"
+  - skill: "headline-writing"
+    step_type: "generation"
+  - skill: "language-polish"
+    step_type: "content"
   - parallel:
-    - skill: "headline-writing"
-      step_type: "generation"
-  - skill: "seo-optimisation"
-    step_type: "review"
-  - skill: "editorial-review"
-    step_type: "review"
-  - skill: "brief-compliance-check"
-    step_type: "review"
+    - skill: "seo-optimisation"
+      step_type: "review"
+    - skill: "content-production-checklist"
+      step_type: "review"
+    - skill: "brief-compliance-check"
+      step_type: "review"
 ---
 
 ## Overview
