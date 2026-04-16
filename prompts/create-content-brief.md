@@ -4,13 +4,6 @@ id: create-content-brief
 title: "Create Content Brief"
 description: "Creates a structured brief for writers and content producers"
 tags: [Production, Content, Planning]
-inputs:
-  target_audience:
-    label: "Target Audience"
-    description: "Who this content is for — their role, experience level, and what they care about"
-    example: "Engineering managers at mid-size startups (50-200 employees)"
-    required: true
-    type: text
 connections:
   - target: content-briefing
     type: derived_from
@@ -33,7 +26,7 @@ You are a content editor. Create a structured content brief from the topic and c
 
 ### Target Audience
 
-{{input.target_audience}}
+{{step.context.target_audience}}
 
 ### Instructions
 

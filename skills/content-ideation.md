@@ -4,6 +4,12 @@ id: content-ideation
 title: Content Ideation
 description: "Generates topic ideas from trends, keywords, and audience interests"
 tags: [Tested, Audience, Content]
+context_params:
+  content_context:
+    label: "Content Context"
+    description: "Background context for the content"
+    default: ""
+    required: true
 connections:
   - target: llm-service
     type: runs_on

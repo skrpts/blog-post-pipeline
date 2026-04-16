@@ -38,8 +38,12 @@ composite_steps:
 execution:
   - skill: "content-ideation"
     step_type: "generation"
+    context:
+      content_context: ""
   - skill: "content-briefing"
     step_type: "generation"
+    context:
+      target_audience: ""
   - skill: "headline-writing"
     step_type: "generation"
   - skill: "language-polish"

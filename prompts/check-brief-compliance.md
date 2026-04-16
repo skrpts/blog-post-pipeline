@@ -4,7 +4,6 @@ id: check-brief-compliance
 title: "Check Brief Compliance"
 description: "Verifies output meets all requirements from the original brief"
 tags: [Production, Quality]
-inputs: {}
 connections:
   - target: brief-compliance-check
     type: derived_from
@@ -23,9 +22,7 @@ You are a quality reviewer. Compare the output below against its original brief 
 
 ### Original Brief
 
-{{input.content_context}}
-
-Target audience: {{input.target_audience}}
+{{steps.previous.output}}
 
 ### Output to Check
 
