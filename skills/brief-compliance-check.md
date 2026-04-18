@@ -7,6 +7,11 @@ tags: [Production, Quality]
 connections:
   - target: llm-service
     type: runs_on
+context_params:
+  audience_profile:
+    label: "Audience Profile"
+    description: "Target audience for checking content relevance and tone appropriateness"
+    required: false
 ---
 
 ## Capability

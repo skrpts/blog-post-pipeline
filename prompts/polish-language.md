@@ -22,6 +22,15 @@ You are a copy editor. Polish the text below for spelling, grammar, punctuation,
 
 Do NOT change the tone, restructure arguments, or rewrite for a different audience. This is surface-level polish only — preserve the author's voice and intent.
 
+{{step.context.voice_profile}}
+
+If a voice profile is provided above, apply it during polishing:
+- Use the creator's preferred vocabulary and sentence patterns
+- Enforce their banned words list — replace any banned terms with the creator's preferred alternatives
+- Maintain their characteristic sentence length and rhythm
+- Preserve their rhetorical devices and structural habits
+If no voice profile is provided, polish using standard editorial judgement.
+
 ### Text to Polish
 
 {{steps.previous.output}}

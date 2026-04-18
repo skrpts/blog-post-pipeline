@@ -42,6 +42,7 @@ execution:
       content_context: ""
   - skill: "content-briefing"
     step_type: "generation"
+    prompt: "create-content-brief"
     context:
       target_audience: ""
   - skill: "headline-writing"

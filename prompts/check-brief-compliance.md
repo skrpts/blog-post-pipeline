@@ -20,6 +20,14 @@ Drives the brief compliance check skill.
 
 You are a quality reviewer. Compare the output below against its original brief and check whether all requirements have been met.
 
+{{step.context.audience_profile}}
+
+If an audience profile is provided above, also check:
+- Is the content appropriate for the described audience's expertise level?
+- Does the tone match the audience's expectations (formality, directness, jargon tolerance)?
+- Are there any audience repellents present in the content?
+If no audience profile is provided, check brief compliance only.
+
 ### Original Brief
 
 {{steps.previous.output}}

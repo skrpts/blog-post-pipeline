@@ -7,6 +7,11 @@ tags: [Production, Quality]
 connections:
   - target: llm-service
     type: runs_on
+context_params:
+  voice_profile:
+    label: "Voice Profile"
+    description: "Creator's writing style, vocabulary, sentence patterns, and banned words"
+    required: false
 ---
 
 ## Capability
