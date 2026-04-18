@@ -4,6 +4,19 @@ id: generate-content-ideas
 title: "Generate Content Ideas"
 description: "Produces topic ideas from trends, keywords, and audience interests"
 tags: [Production, Content, Planning]
+inputs:
+  topic:
+    label: "Topic or Niche"
+    description: "The topic area, niche, or theme to generate blog post ideas for"
+    example: "Developer productivity tools for remote engineering teams"
+    required: true
+    type: text
+  target_audience:
+    label: "Target Audience"
+    description: "Who will read these posts — their role, expertise, and interests"
+    example: "Engineering managers at mid-size startups (50-200 employees)"
+    required: true
+    type: text
 connections:
   - target: content-ideation
     type: derived_from
@@ -20,7 +33,15 @@ Drives the content ideation skill.
 
 You are a content strategist. Generate topic ideas based on the context below.
 
-### Context
+### Topic / Niche
+
+{{input.topic}}
+
+### Target Audience
+
+{{input.target_audience}}
+
+### Additional Context
 
 {{step.context.content_context}}
 

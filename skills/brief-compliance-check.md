@@ -8,6 +8,10 @@ connections:
   - target: llm-service
     type: runs_on
 context_params:
+  compliance_brief:
+    label: "Compliance Brief"
+    description: "The original brief, specification, or requirements to check against"
+    required: false
   audience_profile:
     label: "Audience Profile"
     description: "Target audience for checking content relevance and tone appropriateness"
