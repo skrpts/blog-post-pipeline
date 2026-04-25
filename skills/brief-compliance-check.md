@@ -16,6 +16,11 @@ context_params:
     label: "Audience Profile"
     description: "Target audience for checking content relevance and tone appropriateness"
     required: false
+  compliance_depth:
+    label: "Compliance Depth"
+    description: "How thoroughly to check compliance — Overview, Standard, Thorough, or Exhaustive"
+    default: "Standard"
+    required: false
 ---
 
 ## Capability
