@@ -5,7 +5,7 @@ title: Blog Post Draft
 description: "Writes a complete blog post from a content brief"
 tags: [Customer-Facing, Content, Optimisation]
 connections:
-  - target: content-briefing
+  - target: blog-drafting
     type: derived_from
 metadata:
   output_format: markdown
@@ -15,6 +15,18 @@ metadata:
 ## Purpose
 
 Produces a full blog post draft following the structure, tone, and SEO targets specified in a content brief.
+
+## Voice Profile
+
+{{step.context.voice_profile}}
+
+If a voice profile is provided above, write in the creator's voice — match their sentence patterns, vocabulary, and rhetorical devices. If not, write in a clear, engaging style.
+
+## Audience Profile
+
+{{step.context.audience_profile}}
+
+If an audience profile is provided, calibrate tone, depth, and examples for this audience.
 
 ## Prompt
 

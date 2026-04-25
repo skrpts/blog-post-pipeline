@@ -7,29 +7,35 @@ tags: [Production, Customer-Facing, Content, Optimisation, Review]
 connections:
   - target: content-ideation
     type: uses
+  - target: topic-selection
+    type: uses
   - target: content-briefing
+    type: uses
+  - target: blog-drafting
+    type: uses
+  - target: headline-writing
+    type: uses
+  - target: language-polish
     type: uses
   - target: seo-optimisation
     type: uses
-  - target: headline-writing
+  - target: content-production-checklist
+    type: uses
+  - target: brief-compliance-check
     type: uses
   - target: llm-service
     type: runs_on
   - target: analyse-seo
     type: references
-  - target: content-production-checklist
-    type: uses
-  - target: language-polish
-    type: uses
-  - target: brief-compliance-check
-    type: uses
 metadata:
-  estimated_duration: "5-15 minutes"
+  estimated_duration: "10-20 minutes"
   trigger: manual
 output_step: "language-polish"
 composite_steps:
   - "content-ideation"
+  - "topic-selection"
   - "content-briefing"
+  - "blog-drafting"
   - "headline-writing"
   - "language-polish"
   - "seo-optimisation"
@@ -38,20 +44,29 @@ composite_steps:
 execution:
   - skill: "content-ideation"
     step_type: "generation"
+    prompt: "generate-content-ideas"
     context:
       content_context: ""
+  - skill: "topic-selection"
+    step_type: "validation"
+    prompt: "select-topics"
   - skill: "content-briefing"
     step_type: "generation"
     prompt: "create-content-brief"
     context:
       target_audience: ""
+  - skill: "blog-drafting"
+    step_type: "generation"
+    prompt: "blog-post-draft"
   - skill: "headline-writing"
     step_type: "generation"
+    prompt: "write-headlines"
   - skill: "language-polish"
     step_type: "content"
   - parallel:
     - skill: "seo-optimisation"
       step_type: "review"
+      prompt: "analyse-seo"
     - skill: "content-production-checklist"
       step_type: "review"
     - skill: "brief-compliance-check"
@@ -60,68 +75,82 @@ execution:
 
 ## Overview
 
-This workflow orchestrates the complete blog post production process, from initial ideation through to a publish-ready, SEO-optimised article. Each stage builds on the output of the previous one, with quality gates at the editorial and SEO review stages.
+This workflow produces a complete, publish-ready blog post from a topic area. It generates ideas, pauses for you to pick the best ones, creates a detailed brief, writes the full draft, generates headlines, polishes the language, and runs SEO and compliance checks.
+
+The **topic-selection** gate step is the key decision point — you review the generated ideas and choose which topics to develop. If none work, provide new direction and re-run.
 
 ## Pipeline Stages
 
 ### Stage 1: Content Ideation
 
-**Input:** Target audience, industry niche, seed keywords, existing content inventory
+**Input:** Topic/niche, target audience
 
-Invoke the **content-ideation** skill to generate a ranked list of topic ideas. The content strategist or editor selects the best topic from the list and confirms the angle.
+Invoke the **content-ideation** skill via the **generate-content-ideas** prompt to produce 10 ranked topic ideas with titles, angles, formats, and search intent.
 
-**Output:** Selected topic with working title and angle.
+**Output:** Ranked list of topic ideas.
 
-### Stage 2: Content Briefing
+### Stage 2: Topic Selection (Gate Step)
 
-**Input:** Selected topic, target keywords, audience persona, desired length, reference URLs
+Execution **pauses** via the **topic-selection** gate step. You review the generated ideas and respond:
 
-Invoke the **create-content-brief** prompt to produce a detailed brief covering outline, SEO targets, tone guidance, and reference material.
+- **Select topics** — pick one or more topics to develop (by number or description)
+- **Reject all** — if none work, describe what you need instead and re-run with new input
 
-**Output:** Structured content brief ready for a writer.
+Your selection becomes the input for the content briefing step.
 
-### Stage 3: Blog Post Draft
+**Output:** Your topic selection and any additional direction.
 
-**Input:** Content brief from Stage 2
+### Stage 3: Content Briefing
 
-Invoke the **blog-post-draft** prompt to write the full article following the brief's structure, tone, and SEO targets.
+**Input:** Selected topic(s) from Stage 2
 
-**Output:** Complete blog post draft.
+Invoke the **content-briefing** skill via the **create-content-brief** prompt to produce a structured brief: outline, SEO targets, tone guidance, word count, and CTA.
 
-### Stage 4: Editorial Review
+**Output:** Detailed content brief.
 
-**Input:** Draft from Stage 3 + brand voice guide + editorial style guide
+### Stage 4: Blog Post Draft
 
-Invoke the **editorial-review** skill to check grammar, style compliance, and brand voice alignment. The skill produces annotated corrections and a revised version.
+**Input:** Content brief from Stage 3
 
-**Gate:** All errors must be resolved before proceeding. Recommendations should be addressed; suggestions are optional.
+Invoke the **blog-drafting** skill via the **blog-post-draft** prompt to write the complete article. Follows the brief's structure, incorporates SEO targets, and applies your Voice Profile if set.
 
-**Output:** Editorially reviewed and revised draft.
+**Output:** Complete blog post draft with meta description.
 
-### Stage 5: SEO Optimisation
+### Stage 5: Headline Writing
 
-**Input:** Reviewed draft from Stage 4 + target keywords
+**Input:** Blog post draft from Stage 4
 
-Invoke the **seo-optimisation** skill to evaluate on-page SEO and produce actionable recommendations. Apply the recommendations to produce the final version.
+Invoke the **headline-writing** skill via the **write-headlines** prompt to generate headline options for the draft.
 
-**Gate:** SEO score must be 70 or above before publishing.
+**Output:** 5 headline options with rationale.
 
-**Output:** Publish-ready blog post with meta data.
+### Stage 6: Language Polish
+
+Invoke **language-polish** to clean up the final post. Applies your Voice Profile and grammar strictness settings if configured.
+
+**Output:** Polished, publication-ready blog post.
+
+### Stage 7: Quality Checks (Parallel)
+
+Three review agents run simultaneously:
+- **SEO Optimisation** — evaluates on-page SEO and keyword usage via **analyse-seo**
+- **Content Production Checklist** — checks against production quality criteria
+- **Brief Compliance** — verifies the post meets the original brief's requirements
+
+**Output:** Review reports (supplementary — do not gate the main output).
 
 ## Error Handling
 
-- If ideation produces no viable topics, expand the seed keywords or broaden the niche
-- If the draft significantly deviates from the brief, return to Stage 3 rather than trying to fix in review
-- If SEO and editorial recommendations conflict (e.g., keyword placement vs. natural prose), editorial quality takes priority
+- If ideation produces no viable topics, the gate step lets you redirect with new input
+- If the draft deviates from the brief, the compliance check flags it
+- If SEO and editorial recommendations conflict, editorial quality takes priority
 
 ## Inputs
 
 | Name | Required | Description | Example |
 |------|----------|-------------|---------|
-| `{{input.target_audience}}` | Yes | Who the post is written for | "SaaS founders and product managers" |
-| `{{input.industry_niche}}` | Yes | The topic area or industry | "B2B product-led growth" |
-| `{{input.seed_keywords}}` | Yes | Initial keywords to guide ideation | "onboarding, activation, product-led growth" |
-| `{{input.existing_inventory}}` | No | Titles of existing blog posts to avoid duplication | "5 Onboarding Mistakes, PLG Playbook" |
+| `{{input.topic}}` | Yes | Topic area or niche | `AI tools for B2B marketing teams` |
+| `{{input.target_audience}}` | Yes | Who the post is for | `Marketing managers at mid-size SaaS companies` |
 | `{{input.target_length}}` | No | Desired word count. Default: 1500 | `2000` |
 
 ## Outputs
