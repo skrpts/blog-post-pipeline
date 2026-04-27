@@ -62,6 +62,7 @@ execution:
     step_type: "generation"
     prompt: "write-headlines"
   - skill: "language-polish"
+    prompt: "polish-language"
     step_type: "content"
   - parallel:
     - skill: "seo-optimisation"
@@ -70,6 +71,7 @@ execution:
     - skill: "content-production-checklist"
       step_type: "review"
     - skill: "brief-compliance-check"
+      prompt: "check-brief-compliance"
       step_type: "review"
 ---
 
