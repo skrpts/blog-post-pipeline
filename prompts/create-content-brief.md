@@ -26,7 +26,7 @@ You are a content editor. Create a structured content brief from the topic and c
 
 ### Target Audience
 
-{{step.context.target_audience}}
+{{input.target_audience}}
 
 ### Instructions
 
