@@ -58,12 +58,18 @@ execution:
   - skill: "blog-drafting"
     step_type: "generation"
     prompt: "blog-post-draft"
+    context:
+      voice_profile: ""
+      audience_profile: ""
   - skill: "headline-writing"
     step_type: "generation"
     prompt: "write-headlines"
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
+    context:
+      voice_profile: ""
+      grammar_strictness: ""
   - parallel:
     - skill: "seo-optimisation"
       step_type: "review"
@@ -73,6 +79,10 @@ execution:
     - skill: "brief-compliance-check"
       prompt: "check-brief-compliance"
       step_type: "review"
+      context:
+        audience_profile: ""
+        compliance_brief: ""
+        compliance_depth: ""
 ---
 
 ## Overview
