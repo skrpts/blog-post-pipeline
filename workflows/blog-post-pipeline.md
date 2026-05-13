@@ -19,8 +19,6 @@ connections:
     type: uses
   - target: seo-optimisation
     type: uses
-  - target: content-production-checklist
-    type: uses
   - target: brief-compliance-check
     type: uses
   - target: llm-service
@@ -46,7 +44,7 @@ execution:
     step_type: "generation"
     prompt: "generate-content-ideas"
     context:
-      content_context: ""
+      content_context: "No additional context"
   - skill: "topic-selection"
     step_type: "validation"
     prompt: "select-topics"
@@ -54,13 +52,13 @@ execution:
     step_type: "generation"
     prompt: "create-content-brief"
     context:
-      target_audience: ""
+      target_audience: "General professional audience"
   - skill: "blog-drafting"
     step_type: "generation"
     prompt: "blog-post-draft"
     context:
-      voice_profile: ""
-      audience_profile: ""
+      voice_profile: "Neutral professional tone"
+      audience_profile: "General professional audience"
   - skill: "headline-writing"
     step_type: "generation"
     prompt: "write-headlines"
@@ -68,21 +66,19 @@ execution:
     prompt: "polish-language"
     step_type: "content"
     context:
-      voice_profile: ""
-      grammar_strictness: ""
+      voice_profile: "Neutral professional tone"
+      grammar_strictness: "Professional"
   - parallel:
     - skill: "seo-optimisation"
       step_type: "review"
       prompt: "analyse-seo"
-    - skill: "content-production-checklist"
-      step_type: "review"
     - skill: "brief-compliance-check"
       prompt: "check-brief-compliance"
       step_type: "review"
       context:
-        audience_profile: ""
-        compliance_brief: ""
-        compliance_depth: ""
+        audience_profile: "General professional audience"
+        compliance_brief: "No specific compliance requirements"
+        compliance_depth: "Standard"
 ---
 
 ## Overview

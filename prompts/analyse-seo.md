@@ -32,7 +32,7 @@ Provide an overall SEO score out of 100 and a prioritised list of improvements.
 
 ### Inputs
 
-- **Draft content:** {{steps.Editorial Review.output}}
+- **Draft content:** {{steps.Language Polish.output}}
 - **Target keyword(s):** Use the target keywords from {{steps.Content Briefing.output}}
 - **Competitor URLs (optional):** Include any competitor URLs if available
 
