@@ -45,6 +45,7 @@ execution:
     prompt: "generate-content-ideas"
     context:
       content_context: "No additional context"
+      source_content: "No prior analysis available — generate from the context below"
   - skill: "topic-selection"
     step_type: "validation"
     prompt: "select-topics"

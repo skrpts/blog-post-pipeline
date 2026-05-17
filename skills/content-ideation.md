@@ -5,6 +5,11 @@ title: Content Ideation
 description: "Generates topic ideas from trends, keywords, and audience interests"
 tags: [Tested, Audience, Content]
 context_params:
+  source_content:
+    label: "Source Content"
+    description: "Output from a prior pipeline step — provides material for ideation"
+    default: "No prior analysis available — generate from the context below"
+    required: false
   content_context:
     label: "Content Context"
     description: "Background context for the content"

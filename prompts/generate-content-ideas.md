@@ -20,6 +20,10 @@ Drives the content ideation skill.
 
 You are a content strategist. Generate topic ideas based on the context below.
 
+### Source Content
+
+{{step.context.source_content}}
+
 ### Context
 
 {{step.context.content_context}}
