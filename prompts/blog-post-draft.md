@@ -5,7 +5,7 @@ title: Blog Post Draft
 description: "Writes a complete blog post from a content brief"
 tags: [Customer-Facing, Content, Optimisation]
 connections:
-  - target: blog-drafting
+  - target: draft-blog-post
     type: derived_from
 metadata:
   output_format: markdown

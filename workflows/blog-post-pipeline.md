@@ -11,7 +11,7 @@ connections:
     type: uses
   - target: content-briefing
     type: uses
-  - target: blog-drafting
+  - target: draft-blog-post
     type: uses
   - target: headline-writing
     type: uses
@@ -33,7 +33,7 @@ composite_steps:
   - "content-ideation"
   - "topic-selection"
   - "content-briefing"
-  - "blog-drafting"
+  - "draft-blog-post"
   - "headline-writing"
   - "language-polish"
   - "seo-optimisation"
@@ -54,7 +54,7 @@ execution:
     prompt: "create-content-brief"
     context:
       target_audience: "General professional audience"
-  - skill: "blog-drafting"
+  - skill: "draft-blog-post"
     step_type: "generation"
     prompt: "blog-post-draft"
     context:
@@ -121,7 +121,7 @@ Invoke the **content-briefing** skill via the **create-content-brief** prompt to
 
 **Input:** Content brief from Stage 3
 
-Invoke the **blog-drafting** skill via the **blog-post-draft** prompt to write the complete article. Follows the brief's structure, incorporates SEO targets, and applies your Voice Profile if set.
+Invoke the **draft-blog-post** skill via the **blog-post-draft** prompt to write the complete article. Follows the brief's structure, incorporates SEO targets, and applies your Voice Profile if set.
 
 **Output:** Complete blog post draft with meta description.
 
