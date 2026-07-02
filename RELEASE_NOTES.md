@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.17
+GH#745 — declare per-step `output: {name, type}` on every execution step (`ideas`/list, `topic_selection`/text, `brief`/text, `draft`/text, `headlines`/list, `polished_post`/text, `seo_report`/text, `compliance_verdict`/decision). Lights up the #744 rich flow-map — steps now show named, typed outputs instead of the step-attributed fallback. Content-only; no bindings or logic changes.
+
 ## v1.2.16
 GH#645 Row 3b — migrate to K-037 dep-referenced schema. Strip 15 inline shared-content files and declare 15 hub-shared deps (UUID id + slug name + version + checksum from `gen-dep-checksums.mjs`). Internal slug references rewritten for E2 rename/mirror-drop pair(s): blog-drafting→draft-blog-post. Closes pre-Step-3 inline-vendoring for this bundle.
 

@@ -43,29 +43,35 @@ execution:
   - skill: "content-ideation"
     step_type: "generation"
     prompt: "generate-content-ideas"
+    output: { name: "ideas", type: "list" }
     context:
       content_context: "No additional context"
       source_content: "No prior analysis available — generate from the context below"
   - skill: "topic-selection"
     step_type: "validation"
     prompt: "select-topics"
+    output: { name: "topic_selection", type: "text" }
   - skill: "content-briefing"
     step_type: "generation"
     prompt: "create-content-brief"
+    output: { name: "brief", type: "text" }
     context:
       target_audience: "General professional audience"
   - skill: "draft-blog-post"
     step_type: "generation"
     prompt: "blog-post-draft"
+    output: { name: "draft", type: "text" }
     context:
       voice_profile: "Neutral professional tone"
       audience_profile: "General professional audience"
   - skill: "headline-writing"
     step_type: "generation"
     prompt: "write-headlines"
+    output: { name: "headlines", type: "list" }
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
+    output: { name: "polished_post", type: "text" }
     context:
       voice_profile: "Neutral professional tone"
       grammar_strictness: "Professional"
@@ -73,9 +79,11 @@ execution:
     - skill: "seo-optimisation"
       step_type: "review"
       prompt: "analyse-seo"
+      output: { name: "seo_report", type: "text" }
     - skill: "brief-compliance-check"
       prompt: "check-brief-compliance"
       step_type: "review"
+      output: { name: "compliance_verdict", type: "decision" }
       context:
         audience_profile: "General professional audience"
         compliance_brief: "No specific compliance requirements"
