@@ -4,6 +4,25 @@ id: blog-post-draft
 title: Blog Post Draft
 description: "Writes a complete blog post from a content brief"
 tags: [Customer-Facing, Content, Optimisation]
+inputs:
+  topic:
+    label: "Topic"
+    description: "Topic area or niche for the blog post"
+    example: "AI tools for B2B marketing teams"
+    required: true
+    type: string
+  target_audience:
+    label: "Target Audience"
+    description: "Who the post is for"
+    example: "Marketing managers at mid-size SaaS companies"
+    required: false
+    type: string
+  style_guidelines:
+    label: "Style Guidelines"
+    description: "Voice and tone to write in. Defaults to a neutral professional style if omitted."
+    example: "Warm, plain-spoken, second person; short sentences"
+    required: false
+    type: string
 connections:
   - target: draft-blog-post
     type: derived_from

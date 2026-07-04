@@ -45,8 +45,10 @@ execution:
     prompt: "generate-content-ideas"
     output: { name: "ideas", type: "list" }
     context:
-      content_context: "No additional context"
       source_content: "No prior analysis available — generate from the context below"
+    bindings:
+      content_context:
+        from_input: "topic"
   - skill: "topic-selection"
     step_type: "validation"
     prompt: "select-topics"
@@ -55,15 +57,18 @@ execution:
     step_type: "generation"
     prompt: "create-content-brief"
     output: { name: "brief", type: "text" }
-    context:
-      target_audience: "General professional audience"
+    bindings:
+      target_audience:
+        from_input: "target_audience"
   - skill: "draft-blog-post"
     step_type: "generation"
     prompt: "blog-post-draft"
     output: { name: "draft", type: "text" }
-    context:
-      voice_profile: "Neutral professional tone"
-      audience_profile: "General professional audience"
+    bindings:
+      voice_profile:
+        from_input: "style_guidelines"
+      audience_profile:
+        from_input: "target_audience"
   - skill: "headline-writing"
     step_type: "generation"
     prompt: "write-headlines"
@@ -73,8 +78,10 @@ execution:
     step_type: "content"
     output: { name: "polished_post", type: "text" }
     context:
-      voice_profile: "Neutral professional tone"
       grammar_strictness: "Professional"
+    bindings:
+      voice_profile:
+        from_input: "style_guidelines"
   - parallel:
     - skill: "seo-optimisation"
       step_type: "review"
@@ -85,9 +92,11 @@ execution:
       step_type: "review"
       output: { name: "compliance_verdict", type: "decision" }
       context:
-        audience_profile: "General professional audience"
         compliance_brief: "No specific compliance requirements"
         compliance_depth: "Standard"
+      bindings:
+        audience_profile:
+          from_input: "target_audience"
 ---
 
 ## Overview

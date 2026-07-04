@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.18
+GH#775 — the pipeline never actually accepted a topic. Its inputs lived only in the prose Inputs table, never structurally declared where the engine reads them (a prompt `inputs:` block), so every step ran on static placeholders ("No subject supplied", "General professional audience"). Declared `topic` (required) plus optional `target_audience` and `style_guidelines`, then bound them into the step contexts they feed: content-ideation `content_context` ← `topic` (the first step, so a supplied topic drives ideation), content-briefing `target_audience` ← `target_audience`, draft-blog-post `voice_profile` ← `style_guidelines` / `audience_profile` ← `target_audience`, language-polish `voice_profile` ← `style_guidelines`, brief-compliance-check `audience_profile` ← `target_audience`. A supplied topic, audience, and style now flow through the whole pipeline. (`word_count`/length remains a deliberate deferral — binding it needs a shared-prompt change; it degrades to the default.)
+
 ## v1.2.17
 GH#745 — declare per-step `output: {name, type}` on every execution step (`ideas`/list, `topic_selection`/text, `brief`/text, `draft`/text, `headlines`/list, `polished_post`/text, `seo_report`/text, `compliance_verdict`/decision). Lights up the #744 rich flow-map — steps now show named, typed outputs instead of the step-attributed fallback. Content-only; no bindings or logic changes.
 
