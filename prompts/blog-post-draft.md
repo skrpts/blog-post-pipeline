@@ -23,6 +23,12 @@ inputs:
     example: "Warm, plain-spoken, second person; short sentences"
     required: false
     type: string
+  word_count:
+    label: "Target Word Count"
+    description: "Desired length of the post in words. Defaults to the brief's recommendation if omitted."
+    example: "1500"
+    required: false
+    type: number
 connections:
   - target: draft-blog-post
     type: derived_from
@@ -47,6 +53,12 @@ If a voice profile is provided above, write in the creator's voice — match the
 
 If an audience profile is provided, calibrate tone, depth, and examples for this audience.
 
+## Target Word Count
+
+{{step.context.word_count}}
+
+If a target word count is provided above, write the post to that length. If not, follow the word count recommended in the brief.
+
 ## Prompt
 
 You are an experienced content writer. Using the content brief below, write a complete blog post. Follow these guidelines:
@@ -54,7 +66,7 @@ You are an experienced content writer. Using the content brief below, write a co
 1. **Structure** — follow the outline in the brief exactly, using the specified H2 and H3 headings
 2. **Tone** — match the tone and style guidance in the brief
 3. **SEO** — incorporate the target keyword naturally in the title, first paragraph, at least two H2 headings, and the conclusion. Aim for 1-2% keyword density without stuffing.
-4. **Length** — hit the target word count specified in the brief
+4. **Length** — hit the target word count provided above if set, otherwise the one specified in the brief
 5. **Engagement** — open with a hook that addresses the reader's pain point or curiosity. Use examples, data, and analogies to make abstract points concrete.
 6. **Call to action** — end with the CTA specified in the brief
 7. **Formatting** — use short paragraphs (3-4 sentences max), bullet points for lists, and bold for key terms on first use

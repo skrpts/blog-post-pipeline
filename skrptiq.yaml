@@ -3,7 +3,7 @@ id: "74821609-09b1-4916-b314-787b08c94a9f"
 name: "blog-post-pipeline"
 display_name: "Blog Post Pipeline"
 description: "End-to-end blog production: ideation, briefing, draft, editorial review, and SEO optimisation"
-version: "1.2.18"
+version: "1.2.19"
 engine: ">=0.1.0"
 
 # --- Attribution ---
@@ -104,7 +104,7 @@ contents:
 
 security:
   status: "pass"
-  scanned_at: "2026-07-04T18:35:18.497Z"
+  scanned_at: "2026-07-04T19:03:43.951Z"
   scanner_version: "3.3.0"
   syntactic: "pass"
   structural: "pass"

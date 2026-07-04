@@ -69,6 +69,8 @@ execution:
         from_input: "style_guidelines"
       audience_profile:
         from_input: "target_audience"
+      word_count:
+        from_input: "word_count"
   - skill: "headline-writing"
     step_type: "generation"
     prompt: "write-headlines"
@@ -109,7 +111,7 @@ The **topic-selection** gate step is the key decision point — you review the g
 
 ### Stage 1: Content Ideation
 
-**Input:** Topic/niche, target audience
+**Input:** Topic (`topic`) — drives idea generation
 
 Invoke the **content-ideation** skill via the **generate-content-ideas** prompt to produce 10 ranked topic ideas with titles, angles, formats, and search intent.
 
@@ -138,7 +140,7 @@ Invoke the **content-briefing** skill via the **create-content-brief** prompt to
 
 **Input:** Content brief from Stage 3
 
-Invoke the **draft-blog-post** skill via the **blog-post-draft** prompt to write the complete article. Follows the brief's structure, incorporates SEO targets, and applies your Voice Profile if set.
+Invoke the **draft-blog-post** skill via the **blog-post-draft** prompt to write the complete article. Follows the brief's structure, incorporates SEO targets, writes to your target word count (`word_count`) if set — otherwise the brief's recommendation — and applies your style guidelines and audience if provided.
 
 **Output:** Complete blog post draft with meta description.
 
@@ -176,8 +178,9 @@ Three review agents run simultaneously:
 | Name | Required | Description | Example |
 |------|----------|-------------|---------|
 | `{{input.topic}}` | Yes | Topic area or niche | `AI tools for B2B marketing teams` |
-| `{{input.target_audience}}` | Yes | Who the post is for | `Marketing managers at mid-size SaaS companies` |
-| `{{input.target_length}}` | No | Desired word count. Default: 1500 | `2000` |
+| `{{input.target_audience}}` | No | Who the post is for | `Marketing managers at mid-size SaaS companies` |
+| `{{input.style_guidelines}}` | No | Voice and tone to write in | `Warm, plain-spoken, second person; short sentences` |
+| `{{input.word_count}}` | No | Desired length in words. Defaults to the brief's recommendation | `1500` |
 
 ## Outputs
 
@@ -193,7 +196,7 @@ Before running this workflow:
 
 1. **No external services required** — this workflow runs entirely on your configured LLM provider.
 2. **Customise the style guides** — review the three source documents (`brand-voice-guide`, `editorial-style-guide`, `seo-guidelines`) and update them to match your brand and editorial standards.
-3. **Prepare your inputs** — you'll need a target audience, industry niche, and seed keywords at minimum.
+3. **Prepare your inputs** — a topic is required. Optionally supply a target audience, style guidelines, and a target word count; each refines the output but has a sensible default.
 
 ## Provider Notes
 
@@ -207,8 +210,8 @@ Before running this workflow:
 To test this workflow immediately after import:
 
 ```
+Topic: "Local SEO for small service businesses (plumbers, electricians, landscapers)"
 Target audience: "Small business owners who are new to content marketing"
-Industry niche: "Local service businesses (plumbers, electricians, landscapers)"
-Seed keywords: "local SEO, Google Business Profile, customer reviews"
-Target length: 1200
+Style guidelines: "Warm, plain-spoken, second person; short sentences"
+Word count: 1200
 ```
