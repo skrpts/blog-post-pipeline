@@ -34,8 +34,8 @@ composite_steps:
   - "topic-selection"
   - "content-briefing"
   - "draft-blog-post"
-  - "headline-writing"
   - "language-polish"
+  - "headline-writing"
   - "seo-optimisation"
   - "content-production-checklist"
   - "brief-compliance-check"
@@ -71,10 +71,6 @@ execution:
         from_input: "target_audience"
       word_count:
         from_input: "word_count"
-  - skill: "headline-writing"
-    step_type: "generation"
-    prompt: "write-headlines"
-    output: { name: "headlines", type: "list" }
   - skill: "language-polish"
     prompt: "polish-language"
     step_type: "content"
@@ -84,7 +80,18 @@ execution:
     bindings:
       voice_profile:
         from_input: "style_guidelines"
+      source:
+        from_step: "Blog Drafting"
+        field: output
   - parallel:
+    - skill: "headline-writing"
+      step_type: "generation"
+      prompt: "write-headlines"
+      output: { name: "headlines", type: "list" }
+      bindings:
+        source:
+          from_step: "Language Polish"
+          field: output
     - skill: "seo-optimisation"
       step_type: "review"
       prompt: "analyse-seo"
@@ -99,6 +106,9 @@ execution:
       bindings:
         audience_profile:
           from_input: "target_audience"
+        source:
+          from_step: "Language Polish"
+          field: output
 ---
 
 ## Overview
@@ -144,28 +154,22 @@ Invoke the **draft-blog-post** skill via the **blog-post-draft** prompt to write
 
 **Output:** Complete blog post draft with meta description.
 
-### Stage 5: Headline Writing
+### Stage 5: Language Polish
 
-**Input:** Blog post draft from Stage 4
+**Input:** Blog post draft from Stage 4 (mapped explicitly from the draft step)
 
-Invoke the **headline-writing** skill via the **write-headlines** prompt to generate headline options for the draft.
-
-**Output:** 5 headline options with rationale.
-
-### Stage 6: Language Polish
-
-Invoke **language-polish** to clean up the final post. Applies your Voice Profile and grammar strictness settings if configured.
+Invoke **language-polish** to clean up the article — spelling, grammar, and clarity — applying your style guidelines and grammar strictness if configured. This is the pipeline's main deliverable (`output_step`).
 
 **Output:** Polished, publication-ready blog post.
 
-### Stage 7: Quality Checks (Parallel)
+### Stage 6: Headlines & Quality Checks (Parallel)
 
-Three review agents run simultaneously:
+Three agents run simultaneously, each mapped explicitly to the **polished post** from Stage 5:
+- **Headline Writing** — generates headline options via **write-headlines**
 - **SEO Optimisation** — evaluates on-page SEO and keyword usage via **analyse-seo**
-- **Content Production Checklist** — checks against production quality criteria
-- **Brief Compliance** — verifies the post meets the original brief's requirements
+- **Brief Compliance** — verifies the post meets the original brief's requirements via **check-brief-compliance**
 
-**Output:** Review reports (supplementary — do not gate the main output).
+**Output:** Headline options and review reports (supplementary — do not gate the main output).
 
 ## Error Handling
 

@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.20
+GH#781 / K-045 — fix the pipeline tail data-flow and repin dependencies. The tail chained on positional `{{steps.previous.output}}`, so with headline-writing sitting between draft and polish, language-polish (and SEO/compliance) operated on the HEADLINES, not the article. Reordered to draft -> language-polish -> parallel[headline-writing, seo, compliance] and mapped each steps source EXPLICITLY: language-polish source from the draft; headline-writing / brief-compliance-check source from the polished post (via `from_step`); analyse-seo already referenced the polished output explicitly. The three shared tail prompts now expose a `source` slot (see their notes). Also repinned the `dependencies:` lock to the current published dep versions (closing a K-038 propagation gap where the lock trailed at 1.0.1). A supplied topic now flows to a polished ARTICLE at output_step.
+
 ## v1.2.19
 GH#775 follow-up — restore `word_count` as a real, functional input. v1.2.18 dropped it (the app stopped offering it) on the assumption that binding it needed the shared `create-content-brief` prompt (K-038). That premise was wrong: it wires cleanly into the **local** `blog-post-draft` prompt. Declared `word_count` (optional) and bound it into the draft step — the draft now honours a supplied target length (falling back to the brief's recommendation when omitted). Also reconciled the whole skrpt's documentation with the actual inputs (topic required; target_audience/style_guidelines/word_count optional): the Inputs table, the stage descriptions, the Setup notes, and the Example Input block — clearing the earlier drift where the docs advertised inputs (industry niche, seed keywords, target length) that were never wired.
 
