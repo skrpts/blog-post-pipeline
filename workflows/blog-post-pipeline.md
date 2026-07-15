@@ -51,6 +51,7 @@ execution:
         from_input: "topic"
   - skill: "topic-selection"
     step_type: "validation"
+    gate: true
     prompt: "select-topics"
     output: { name: "topic_selection", type: "text" }
   - skill: "content-briefing"

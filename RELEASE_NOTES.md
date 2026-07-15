@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.21
+GH#844 — migrate the gate step from node-meta (`metadata.gate: true` in the skill) to the canonical execution-entry `gate: true` on the workflow step. Single source of truth; the engine + app read the execution entry. No behaviour change — `IsGate` is identical.
+
 ## v1.2.20
 GH#781 / K-045 — fix the pipeline tail data-flow and repin dependencies. The tail chained on positional `{{steps.previous.output}}`, so with headline-writing sitting between draft and polish, language-polish (and SEO/compliance) operated on the HEADLINES, not the article. Reordered to draft -> language-polish -> parallel[headline-writing, seo, compliance] and mapped each steps source EXPLICITLY: language-polish source from the draft; headline-writing / brief-compliance-check source from the polished post (via `from_step`); analyse-seo already referenced the polished output explicitly. The three shared tail prompts now expose a `source` slot (see their notes). Also repinned the `dependencies:` lock to the current published dep versions (closing a K-038 propagation gap where the lock trailed at 1.0.1). A supplied topic now flows to a polished ARTICLE at output_step.
 
