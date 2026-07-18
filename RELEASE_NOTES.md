@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.22
+GH#856 — repin the `dependencies:` lock to the current GH#845 published dep versions (the en-US wave republished every shared dep — brand-voice-guide/content-briefing/content-ideation/draft-blog-post/editorial-review/headline-writing/language-polish/llm-service 1.0.2→1.0.3, create-content-brief 1.0.3→1.0.4, polish-language/write-headlines 1.0.5→1.0.6 — without repinning this consumer, so the lock trailed and the e2e fixture went stale). No behaviour change: the K-045 `source`-slot data-flow migration already landed in v1.2.20 (the tail steps bind `source` explicitly via `from_step`), and every 1.0.x bump here is a pure American-English copy edit with no interface change — the workflow's explicit bindings resolve against the new dep versions unchanged (canonical scan clean). Regenerates a coherent e2e fixture (MANIFEST/package pins == `deps/` bundle versions) so the app flagship semantic e2e resolves and executes the real graph.
+
 ## v1.2.21
 GH#844 — migrate the gate step from node-meta (`metadata.gate: true` in the skill) to the canonical execution-entry `gate: true` on the workflow step. Single source of truth; the engine + app read the execution entry. No behaviour change — `IsGate` is identical.
 
