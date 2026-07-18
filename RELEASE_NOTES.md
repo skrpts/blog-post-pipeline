@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.23
+GH#864 — remove the dead `review-editorially` prompt. It was declared but no workflow step invoked it (it only `derived_from` the uninvoked `editorial-review` skill), so it never ran — editorial review is already covered by the `language-polish` and `check-brief-compliance` tail steps. This is the C6 (uninvoked-node) true positive; removing it takes the catalogue-wide K-045 coherence run to zero findings, allowing `K045_ENFORCE` to flip so C6/C7 become a hard warning going forward. Content-only change to the bundle; the `editorial-review` / `editorial-style-guide` dependency pins are left in place (harmless, unflagged) pending any separate dependency-closure tidy.
+
 ## v1.2.22
 GH#856 — repin the `dependencies:` lock to the current GH#845 published dep versions (the en-US wave republished every shared dep — brand-voice-guide/content-briefing/content-ideation/draft-blog-post/editorial-review/headline-writing/language-polish/llm-service 1.0.2→1.0.3, create-content-brief 1.0.3→1.0.4, polish-language/write-headlines 1.0.5→1.0.6 — without repinning this consumer, so the lock trailed and the e2e fixture went stale). No behaviour change: the K-045 `source`-slot data-flow migration already landed in v1.2.20 (the tail steps bind `source` explicitly via `from_step`), and every 1.0.x bump here is a pure American-English copy edit with no interface change — the workflow's explicit bindings resolve against the new dep versions unchanged (canonical scan clean). Regenerates a coherent e2e fixture (MANIFEST/package pins == `deps/` bundle versions) so the app flagship semantic e2e resolves and executes the real graph.
 
